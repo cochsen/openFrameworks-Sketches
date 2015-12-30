@@ -1,8 +1,12 @@
 #include "ofApp.h"
 
+int myCircleX;
+int myCircleY;
+
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+	myCircleX = 300;
+	myCircleY = 200;
 }
 
 //--------------------------------------------------------------
@@ -12,12 +16,29 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+	ofSetColor(255, 0, 255);
+	ofDrawCircle(myCircleX, myCircleY, 60);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-	cout << "keyPressed " << key << endl;
+	cout << "keyPressed " << (char)key << endl;
+	if (key == 'w')	// key 119
+	{
+		myCircleY -= 4;
+	}
+	if (key == 's')	// key 115
+	{
+		myCircleY += 4;
+	}
+	if (key == 'a')	// key 97
+	{
+		myCircleX -= 4;
+	}
+	if (key == 'd')	// key 100
+	{
+		myCircleX += 4;
+	}
 }
 
 //--------------------------------------------------------------
