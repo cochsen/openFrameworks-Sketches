@@ -22,12 +22,15 @@ void ofApp::draw(){
 void ofApp::stripePattern() {
 	ofSetColor(ofColor::black);
 	ofSetLineWidth(3.0);
+	ofNoFill();
 	for (int i = -50; i < 50; i++)
 	{
 		ofPushMatrix();
 		ofTranslate(i * 20, 0);
 		ofRotate(i * 5);
-		ofLine(0, -100, 0, 100);
+		ofScale(6, 6);
+		ofTriangle(0, 0, -50, 100, 50, 100);
+		//ofLine(0, -100, 0, 100);
 		ofPopMatrix();
 	}
 }
