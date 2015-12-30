@@ -26,6 +26,7 @@ void ofApp::stripePattern() {
 	{
 		ofPushMatrix();
 		ofTranslate(i * 20, 0);
+		ofRotate(i * 5);
 		ofLine(0, -100, 0, 100);
 		ofPopMatrix();
 	}
