@@ -2,11 +2,13 @@
 
 int myCircleX;
 int myCircleY;
+int myCircleRadius;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 	myCircleX = 300;
 	myCircleY = 200;
+	myCircleRadius = 60;
 }
 
 //--------------------------------------------------------------
@@ -17,7 +19,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	ofSetColor(255, 0, 255);
-	ofDrawCircle(myCircleX, myCircleY, 60);
+	ofDrawCircle(myCircleX, myCircleY, myCircleRadius);
 }
 
 //--------------------------------------------------------------
@@ -59,6 +61,11 @@ void ofApp::mouseDragged(int x, int y, int button){
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
 	cout << "mousePressed: " << x << ", " << y << " button: " << button << endl;
+	float distance = ofDist(myCircleX, myCircleY, x, y);
+	if (distance < myCircleRadius)
+	{
+		myCircleRadius += 2;
+	}
 }
 
 //--------------------------------------------------------------
