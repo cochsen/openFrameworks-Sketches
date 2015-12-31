@@ -48,29 +48,37 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	ofBackground(Background);
-	gui.draw();
-	
+
 	ofPushMatrix();
 	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
+	float Scl = pow(Scale, 4.0f);
+	ofScale(Scl, Scl);
+	ofRotate(Rotate);
 	stripePattern();
 	ofPopMatrix();
+
+	gui.draw();
 }
 
 //--------------------------------------------------------------
 void ofApp::stripePattern() {
-	ofSetColor(ofColor::black);
-	ofSetLineWidth(3.0);
-	ofNoFill();
+	ofSetColor(color);
+	ofSetLineWidth(1.0);						// line width 1 pixel
+	if (filled)								// if "filled" checked, fill shape
+		ofFill();
+	else
+		ofNoFill();
 	for (int i = -countX; i <= countX; i++)
 	{
 		ofPushMatrix();
 		ofTranslate(i * stepX, 0);
-		float Scl = pow(Scale, 4.0f);
-		ofScale(Scl, Scl);
-		ofRotate(Rotate);
 		ofRotate(i * twistX);
-		ofScale(6, 6);
-		ofTriangle(0, 0, -50, 100, 50, 100);
+		ofTranslate(0, shiftY);				// translate along Y axis perpendicular to the helix of twistX
+		ofScale(size->x, size->y);			// scale x and y according to slider size value
+		if (type)							// if type is checked draw rect, else draw triangle
+			ofRect(-50, -50, 100, 100);
+		else
+			ofTriangle(0, 0, -50, 100, 50, 100);
 		ofPopMatrix();
 	}
 }
