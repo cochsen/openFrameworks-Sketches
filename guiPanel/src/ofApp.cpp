@@ -2,7 +2,13 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	ofSetWindowTitle("Video synth");
+	ofSetWindowShape(1280, 720);
+	ofSetFrameRate(60);
+	ofBackground(ofColor::white);
+
 	gui.setup("Parameters", "settings.xml");
+
 	gui.add(countX.setup("countX", 50, 0, 200));
 	gui.add(stepX.setup("stepX", 20, 0, 200));
 	gui.add(twistX.setup("twistX", 5, -45, 45));
@@ -16,6 +22,27 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	gui.draw();
+	
+	ofPushMatrix();
+	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
+	stripePattern();
+	ofPopMatrix();
+}
+
+//--------------------------------------------------------------
+void ofApp::stripePattern() {
+	ofSetColor(ofColor::black);
+	ofSetLineWidth(3.0);
+	ofNoFill();
+	for (int i = -50; i < 50; i++)
+	{
+		ofPushMatrix();
+		ofTranslate(i * 20, 0);
+		ofRotate(i * 5);
+		ofScale(6, 6);
+		ofTriangle(0, 0, -50, 100, 50, 100);
+		ofPopMatrix();
+	}
 }
 
 //--------------------------------------------------------------
