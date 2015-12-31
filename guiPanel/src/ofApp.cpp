@@ -34,11 +34,11 @@ void ofApp::stripePattern() {
 	ofSetColor(ofColor::black);
 	ofSetLineWidth(3.0);
 	ofNoFill();
-	for (int i = -50; i < 50; i++)
+	for (int i = -countX; i <= countX; i++)
 	{
 		ofPushMatrix();
-		ofTranslate(i * 20, 0);
-		ofRotate(i * 5);
+		ofTranslate(i * stepX, 0);
+		ofRotate(i * twistX);
 		ofScale(6, 6);
 		ofTriangle(0, 0, -50, 100, 50, 100);
 		ofPopMatrix();
