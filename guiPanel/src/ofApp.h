@@ -16,6 +16,17 @@ class ofApp : public ofBaseApp{
 		ofxIntSlider countX;
 		ofxFloatSlider stepX;
 		ofxFloatSlider twistX;
+		
+		ofxGuiGroup globalGroup;
+		ofxFloatSlider Scale;
+		ofxFloatSlider Rotate;
+		ofxFloatSlider Background;
+
+		ofxGuiGroup primGroup;
+		ofxFloatSlider shiftY, rotate;
+		ofxVec2Slider size;
+		ofxColorSlider color;
+		ofxToggle filled, type;
 
 		void keyPressed(int key);
 		void keyReleased(int key);
