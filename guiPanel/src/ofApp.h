@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp{
 
@@ -8,6 +9,11 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+
+		ofxPanel gui;
+		ofxIntSlider countX;
+		ofxFloatSlider stepX;
+		ofxFloatSlider twistX;
 
 		void keyPressed(int key);
 		void keyReleased(int key);
