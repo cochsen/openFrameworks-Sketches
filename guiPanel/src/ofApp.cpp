@@ -12,6 +12,8 @@ void ofApp::setup(){
 	gui.add(countX.setup("countX", 50, 0, 200));
 	gui.add(stepX.setup("stepX", 20, 0, 200));
 	gui.add(twistX.setup("twistX", 5, -45, 45));
+
+	gui.loadFromFile("settings.xml");
 }
 
 //--------------------------------------------------------------
@@ -43,6 +45,11 @@ void ofApp::stripePattern() {
 		ofTriangle(0, 0, -50, 100, 50, 100);
 		ofPopMatrix();
 	}
+}
+
+//--------------------------------------------------------------
+void ofApp::exit() {
+	gui.saveToFile("settings.xml");
 }
 
 //--------------------------------------------------------------

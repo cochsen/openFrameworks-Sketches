@@ -10,6 +10,7 @@ class ofApp : public ofBaseApp{
 		void update();
 		void draw();
 		void stripePattern();
+		void exit();
 
 		ofxPanel gui;
 		ofxIntSlider countX;
